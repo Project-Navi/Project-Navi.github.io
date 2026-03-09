@@ -119,16 +119,36 @@
 
     .card .links {
       display: flex;
-      gap: 1rem;
-      font-size: 0.85rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .card .links a {
-      color: var(--text-dim);
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-muted);
+      transition: border-color 0.2s, color 0.2s;
     }
 
     .card .links a:hover {
+      border-color: var(--accent);
       color: var(--accent);
+    }
+
+    .card .links a.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+
+    .card .links a.primary:hover {
+      background: var(--text);
+      border-color: var(--text);
     }
 
     /* --- Tier badges --- */
@@ -187,7 +207,7 @@
     <h3><a href="/navi-fractal/">navi-fractal</a></h3>
     <p>Sandbox fractal dimension estimation for complex networks. Quality gates refuse to emit a dimension unless positive evidence of power-law scaling exists.</p>
     <div class="links">
-      <a href="/navi-fractal/">Docs</a>
+      <a href="/navi-fractal/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/navi-fractal">GitHub</a>
       <a href="https://pypi.org/project/navi-fractal/">PyPI</a>
     </div>
@@ -198,7 +218,7 @@
     <h3><a href="/grippy-code-review/">grippy</a></h3>
     <p>AI code review agent with deterministic security rules and LLM-powered audit. MCP server, GitHub Action, and CLI. Works with any OpenAI-compatible endpoint.</p>
     <div class="links">
-      <a href="/grippy-code-review/">Docs</a>
+      <a href="/grippy-code-review/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/grippy-code-review">GitHub</a>
       <a href="https://pypi.org/project/grippy-mcp/">PyPI</a>
     </div>
@@ -209,7 +229,7 @@
     <h3><a href="/navi-sanitize/">navi-sanitize</a></h3>
     <p>Deterministic input sanitization for untrusted text. Homoglyphs, invisible chars, null bytes, NFKC normalization, template injection. Zero dependencies.</p>
     <div class="links">
-      <a href="/navi-sanitize/">Docs</a>
+      <a href="/navi-sanitize/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/navi-sanitize">GitHub</a>
       <a href="https://pypi.org/project/navi-sanitize/">PyPI</a>
     </div>
@@ -220,7 +240,7 @@
     <h3><a href="/navi-bootstrap/">navi-bootstrap</a></h3>
     <p>Spec-driven Jinja2 engine with 8 template packs for production-grade Python projects. CI, security, code review, and release pipelines out of the box.</p>
     <div class="links">
-      <a href="/navi-bootstrap/">Docs</a>
+      <a href="/navi-bootstrap/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/navi-bootstrap">GitHub</a>
     </div>
   </div>
@@ -230,7 +250,7 @@
     <h3><a href="/navi-creative-determinant/">creative determinant</a></h3>
     <p>Autopoietic closure as a nonlinear elliptic BVP on a compact Riemannian manifold. Existence conditions for self-sustaining creative systems.</p>
     <div class="links">
-      <a href="/navi-creative-determinant/">Docs</a>
+      <a href="/navi-creative-determinant/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/navi-creative-determinant">GitHub</a>
     </div>
   </div>
@@ -240,7 +260,7 @@
     <h3><a href="/fd-formalization/">fd-formalization</a></h3>
     <p>Lean 4 + Mathlib formalization of (u,v)-flower graph dimension. Hub distance, log-ratio convergence, and construction proofs. Zero sorry.</p>
     <div class="links">
-      <a href="/fd-formalization/">Docs</a>
+      <a href="/fd-formalization/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/fd-formalization">GitHub</a>
     </div>
   </div>
@@ -250,7 +270,7 @@
     <h3><a href="/cd-formalization/">cd-formalization</a></h3>
     <p>Lean 4 + Mathlib formalization of the Creative Determinant framework. 15 theorems proved with zero sorry, CI-enforced via lake build.</p>
     <div class="links">
-      <a href="/cd-formalization/">Docs</a>
+      <a href="/cd-formalization/" class="primary">Docs</a>
       <a href="https://github.com/Project-Navi/cd-formalization">GitHub</a>
     </div>
   </div>
