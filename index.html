@@ -83,11 +83,44 @@
       margin: 0 auto 2.5rem;
     }
 
-    /* --- Grid --- */
-    .grid {
+    /* --- Category sections --- */
+    .categories {
       max-width: 900px;
       margin: 0 auto;
       padding: 0 2rem 4rem;
+    }
+
+    .category {
+      margin-bottom: 2.5rem;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+
+    .category-header h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 300;
+      font-size: 1.3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .category-header .subtitle {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .category--research .category-header h2 { color: var(--negative); }
+    .category--infra .category-header h2 { color: var(--neutral); }
+    .category--formalization .category-header h2 { color: var(--positive); }
+
+    /* --- Grid --- */
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.25rem;
@@ -104,6 +137,7 @@
     }
 
     .card:hover { border-color: var(--accent-hover); }
+    .card--featured { border-color: var(--accent); }
 
     .card h3 {
       font-family: "Fraunces", Georgia, serif;
@@ -169,9 +203,9 @@
       margin-bottom: 0.75rem;
     }
 
-    .tier--lib { background: rgba(126, 184, 168, 0.12); color: var(--positive); }
-    .tier--tool { background: rgba(212, 165, 116, 0.12); color: var(--neutral); }
     .tier--research { background: rgba(196, 122, 122, 0.12); color: var(--negative); }
+    .tier--infra { background: rgba(212, 165, 116, 0.12); color: var(--neutral); }
+    .tier--formalization { background: rgba(126, 184, 168, 0.12); color: var(--positive); }
 
     /* --- Footer --- */
     footer {
@@ -194,7 +228,8 @@
     @media (max-width: 600px) {
       .hero { padding: 4rem 1.5rem 2rem; }
       .hero h1 { font-size: 2rem; }
-      .grid { padding: 0 1.5rem 3rem; grid-template-columns: 1fr; }
+      .categories { padding: 0 1.5rem 3rem; }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -206,88 +241,131 @@
   <p class="tagline">Research software for measurement, security, and formal verification. Zero-dependency libraries with audit-grade quality gates.</p>
 </div>
 
-<div class="grid">
+<div class="categories">
 
-  <div class="card">
-    <span class="tier tier--lib">library</span>
-    <h3><a href="/navi-fractal/">navi-fractal</a></h3>
-    <p>Sandbox fractal dimension estimation for complex networks. Quality gates refuse to emit a dimension unless positive evidence of power-law scaling exists.</p>
-    <div class="links">
-      <a href="/navi-fractal/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/navi-fractal">GitHub</a>
-      <a href="https://pypi.org/project/navi-fractal/">PyPI</a>
+  <!-- Research -->
+  <div class="category category--research">
+    <div class="category-header">
+      <h2>Research</h2>
+      <span class="subtitle">Instruments and theory</span>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <span class="tier tier--research">research</span>
+        <h3><a href="/navi-creative-determinant/">creative determinant</a></h3>
+        <p>Autopoietic closure as a nonlinear elliptic BVP on a compact Riemannian manifold. Existence conditions for self-sustaining creative systems.</p>
+        <div class="links">
+          <a href="/navi-creative-determinant/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/navi-creative-determinant">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tier tier--research">research</span>
+        <h3><a href="/navi-SAD/">navi-SAD</a></h3>
+        <p>Dynamical systems probe for LLM inference. Dual-path attention comparison with delay-coordinate attractor reconstruction via permutation entropy.</p>
+        <div class="links">
+          <a href="/navi-SAD/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/navi-SAD">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tier tier--research">research</span>
+        <h3><a href="/navi-fractal/">navi-fractal</a></h3>
+        <p>Sandbox fractal dimension estimation for complex networks. Quality gates refuse to emit a dimension unless positive evidence of power-law scaling exists.</p>
+        <div class="links">
+          <a href="/navi-fractal/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/navi-fractal">GitHub</a>
+          <a href="https://pypi.org/project/navi-fractal/">PyPI</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="card">
-    <span class="tier tier--tool">tool</span>
-    <h3><a href="/grippy-code-review/">grippy</a></h3>
-    <p>AI code review agent with deterministic security rules and LLM-powered audit. MCP server, GitHub Action, and CLI. Works with any OpenAI-compatible endpoint.</p>
-    <div class="links">
-      <a href="/grippy-code-review/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/grippy-code-review">GitHub</a>
-      <a href="https://pypi.org/project/grippy-mcp/">PyPI</a>
+  <!-- Infrastructure -->
+  <div class="category category--infra">
+    <div class="category-header">
+      <h2>Infrastructure</h2>
+      <span class="subtitle">Libraries and tools</span>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <span class="tier tier--infra">tool</span>
+        <h3><a href="/grippy-code-review/">grippy-code-review</a></h3>
+        <p>AI code review agent with deterministic security rules and LLM-powered audit. MCP server, GitHub Action, and CLI. Works with any OpenAI-compatible endpoint.</p>
+        <div class="links">
+          <a href="/grippy-code-review/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/grippy-code-review">GitHub</a>
+          <a href="https://pypi.org/project/grippy-mcp/">PyPI</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tier tier--infra">library</span>
+        <h3><a href="/navi-sanitize/">navi-sanitize</a></h3>
+        <p>Deterministic input sanitization for untrusted text. Homoglyphs, invisible chars, null bytes, NFKC normalization, template injection. Zero dependencies.</p>
+        <div class="links">
+          <a href="/navi-sanitize/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/navi-sanitize">GitHub</a>
+          <a href="https://pypi.org/project/navi-sanitize/">PyPI</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="tier tier--infra">tool</span>
+        <h3><a href="/navi-bootstrap/">navi-bootstrap</a></h3>
+        <p>Spec-driven Jinja2 engine with 8 template packs for production-grade Python projects. CI, security, code review, and release pipelines out of the box.</p>
+        <div class="links">
+          <a href="/navi-bootstrap/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/navi-bootstrap">GitHub</a>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="card">
-    <span class="tier tier--lib">library</span>
-    <h3><a href="/navi-sanitize/">navi-sanitize</a></h3>
-    <p>Deterministic input sanitization for untrusted text. Homoglyphs, invisible chars, null bytes, NFKC normalization, template injection. Zero dependencies.</p>
-    <div class="links">
-      <a href="/navi-sanitize/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/navi-sanitize">GitHub</a>
-      <a href="https://pypi.org/project/navi-sanitize/">PyPI</a>
+  <!-- Formalization -->
+  <div class="category category--formalization">
+    <div class="category-header">
+      <h2>Formalization</h2>
+      <span class="subtitle">Machine-checked mathematics</span>
     </div>
-  </div>
+    <div class="grid">
 
-  <div class="card">
-    <span class="tier tier--tool">tool</span>
-    <h3><a href="/navi-bootstrap/">navi-bootstrap</a></h3>
-    <p>Spec-driven Jinja2 engine with 8 template packs for production-grade Python projects. CI, security, code review, and release pipelines out of the box.</p>
-    <div class="links">
-      <a href="/navi-bootstrap/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/navi-bootstrap">GitHub</a>
-    </div>
-  </div>
+      <div class="card">
+        <span class="tier tier--formalization">formalization</span>
+        <h3><a href="/cd-formalization/">cd-formalization</a></h3>
+        <p>Lean 4 + Mathlib formalization of the Creative Determinant framework. 15 theorems proved with zero sorry, CI-enforced via lake build.</p>
+        <div class="links">
+          <a href="/cd-formalization/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/cd-formalization">GitHub</a>
+        </div>
+      </div>
 
-  <div class="card">
-    <span class="tier tier--research">research</span>
-    <h3><a href="/navi-creative-determinant/">creative determinant</a></h3>
-    <p>Autopoietic closure as a nonlinear elliptic BVP on a compact Riemannian manifold. Existence conditions for self-sustaining creative systems.</p>
-    <div class="links">
-      <a href="/navi-creative-determinant/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/navi-creative-determinant">GitHub</a>
-    </div>
-  </div>
+      <div class="card">
+        <span class="tier tier--formalization">formalization</span>
+        <h3><a href="/fd-formalization/">fd-formalization</a></h3>
+        <p>Lean 4 + Mathlib formalization of (u,v)-flower graph dimension. Hub distance, log-ratio convergence, and construction proofs. Zero sorry.</p>
+        <div class="links">
+          <a href="/fd-formalization/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/fd-formalization">GitHub</a>
+        </div>
+      </div>
 
-  <div class="card">
-    <span class="tier tier--research">research</span>
-    <h3><a href="/navi-SAD/">navi-SAD</a></h3>
-    <p>Dynamical systems probe for LLM inference. Dual-path attention comparison with delay-coordinate attractor reconstruction via permutation entropy.</p>
-    <div class="links">
-      <a href="/navi-SAD/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/navi-SAD">GitHub</a>
-    </div>
-  </div>
+      <div class="card card--featured">
+        <span class="tier tier--formalization">formalization</span>
+        <h3><a href="/takens-formalization/">takens-formalization</a></h3>
+        <p>Lean 4 + Mathlib formalization of delay embedding theory. 42 declarations, novel coincidence length result. Zero sorry.</p>
+        <div class="links">
+          <a href="/takens-formalization/" class="primary">Docs</a>
+          <a href="https://github.com/Project-Navi/takens-formalization">GitHub</a>
+        </div>
+      </div>
 
-  <div class="card">
-    <span class="tier tier--research">formalization</span>
-    <h3><a href="/fd-formalization/">fd-formalization</a></h3>
-    <p>Lean 4 + Mathlib formalization of (u,v)-flower graph dimension. Hub distance, log-ratio convergence, and construction proofs. Zero sorry.</p>
-    <div class="links">
-      <a href="/fd-formalization/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/fd-formalization">GitHub</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <span class="tier tier--research">formalization</span>
-    <h3><a href="/cd-formalization/">cd-formalization</a></h3>
-    <p>Lean 4 + Mathlib formalization of the Creative Determinant framework. 15 theorems proved with zero sorry, CI-enforced via lake build.</p>
-    <div class="links">
-      <a href="/cd-formalization/" class="primary">Docs</a>
-      <a href="https://github.com/Project-Navi/cd-formalization">GitHub</a>
     </div>
   </div>
 
